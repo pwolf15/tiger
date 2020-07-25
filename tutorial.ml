@@ -168,3 +168,33 @@ struct
 end
 
 structure IntSort = Sort(IntOrd)
+
+signature UID =
+    sig 
+        type uid
+        val same : (uid * uid) -> bool
+        val compare : (uid * uid) -> order
+        val gensym : unit -> uid
+    end
+
+(* structure UId :> UID =
+    struct
+        type uid = int (* abstract *)
+        fun same (a : uid, b) = (a = b)
+        val compare = Int.compare
+
+        val count = ref 0 (* hidden *)
+        fun gensym () = let
+            val id = !count
+            in
+                count := id + 1
+                id
+            end
+    end *)
+(* 
+type ('item, 'strm) reader
+    = 'strm -> ('item, 'strm) option
+
+val scan : (char, 'strm) reader
+    -> (ty, 'strm) reader
+ *)

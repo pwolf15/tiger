@@ -15,5 +15,14 @@ fun member(key, LEAF) = false
   | member(key, TREE(l, k, r)) =
       if key < k
         then member(key, l)
-      else 
+      else if key > k
         then member(key, r)
+      else true
+
+fun lookup(key, LEAF) = LEAF
+  | lookup(key, TREE(l, k, r)) =
+    if key < k
+      then lookup(key, l)
+    else if key > k
+      then lookup(key, r)
+    else TREE(l, k, r)

@@ -26,3 +26,9 @@ fun lookup(key, LEAF) = LEAF
     else if key > k
       then lookup(key, r)
     else TREE(l, k, r)
+
+val l = ["t", "s", "i", "p", "f", "b", "s", "t"];
+
+fun makeBST([], _) = LEAF
+    | makeBST(x::xs, t) =
+      insert(x, makeBST(xs, t))

@@ -39,6 +39,14 @@ Dataflow Analysis
 Register Allocation
 Code Emission
 
+straight-line program: program with no loops or if-statements
+environment: symbol table mapping variable-names to information about the variables
+abstract syntax: data structures representing the phrase structure of programs
+recursion over tree data structures
+functional style of programming
+denotational semantics
+attribute grammars
+
 lexical: of or relating to words or the vocabulary of a langauge as distinguished from its grammar and construction.
 
 Lexical analysis: breaking the input into individual words or "tokens".

@@ -54,3 +54,5 @@ lexical: of or relating to words or the vocabulary of a langauge as distinguishe
 Lexical analysis: breaking the input into individual words or "tokens".
 Syntax analysis: parsing the phrase structure of the program.
 Semantic analysis: calculating the program's meaning.
+
+Next Step: 10/4: write maxargs and inter (maxargs prints max number of args in subexpression, interpret actually interprets program)

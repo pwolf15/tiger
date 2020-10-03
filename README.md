@@ -44,8 +44,10 @@ environment: symbol table mapping variable-names to information about the variab
 abstract syntax: data structures representing the phrase structure of programs
 recursion over tree data structures
 functional style of programming
+
 denotational semantics
 attribute grammars
+-> thes are methods for describing what programming languages do.
 
 lexical: of or relating to words or the vocabulary of a langauge as distinguished from its grammar and construction.
 

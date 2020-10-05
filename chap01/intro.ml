@@ -28,6 +28,8 @@ val prog =
 (* use length to get size of PrintStm list *)
 (* length([1, 2, 3]) *)
 (* maxargs(PrintStm[NumExp 10, NumExp 2]); *)
+(* maxargs(prog) => 2 *)
 fun maxargs(prog) = case prog of
     PrintStm argList => length(argList)
+  | CompoundStm (a, b) => Int.max(maxargs(a), maxargs(b))
   | _ => 1

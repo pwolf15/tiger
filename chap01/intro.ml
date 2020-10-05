@@ -30,6 +30,6 @@ val prog =
 (* maxargs(PrintStm[NumExp 10, NumExp 2]); *)
 (* maxargs(prog) => 2 *)
 fun maxargs(prog) = case prog of
-    PrintStm argList => length(argList)
+    PrintStm (x::xs) => Int.max(length(x::xs), 2)
   | CompoundStm (a, b) => Int.max(maxargs(a), maxargs(b))
   | _ => 1

@@ -25,6 +25,8 @@ val prog =
     PrintStm[IdExp "b"]))
 
 (* returns max number of arguments in any print statement *)
+(* use length to get size of PrintStm list *)
+(* length([1, 2, 3]) *)
 fun maxargs(prog) = case prog of
     PrintStm [NumExp _, _] => 3
   | PrintStm _ => 4

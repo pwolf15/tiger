@@ -27,7 +27,7 @@ val prog =
 (* returns max number of arguments in any print statement *)
 (* use length to get size of PrintStm list *)
 (* length([1, 2, 3]) *)
+(* maxargs(PrintStm[NumExp 10, NumExp 2]); *)
 fun maxargs(prog) = case prog of
-    PrintStm [NumExp _, _] => 3
-  | PrintStm _ => 4
+    PrintStm argList => length(argList)
   | _ => 1

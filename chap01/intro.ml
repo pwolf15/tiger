@@ -25,4 +25,6 @@ val prog =
     PrintStm[IdExp "b"]))
 
 (* returns max number of arguments in any print statement *)
-fun maxargs(prog) = "2"
+fun maxargs(prog) = case prog of
+    PrintStm _ => 2
+  | _ => 1

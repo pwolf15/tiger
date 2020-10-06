@@ -29,7 +29,25 @@ val prog =
 (* length([1, 2, 3]) *)
 (* maxargs(PrintStm[NumExp 10, NumExp 2]); *)
 (* maxargs(prog) => 2 *)
+
+fun myTest x = case x of
+  _ => 1
+
 fun maxargs(prog) = case prog of
-    PrintStm (x::xs) => Int.max(length(x::xs), 2)
-  | CompoundStm (a, b) => Int.max(maxargs(a), maxargs(b))
-  | _ => 1
+  CompoundStm (a, b) => Int.max(maxargs(a), maxargs(b))
+  | AssignStm(a, b) => maxargsexp(b)
+  | PrintStm (x) => Int.max(length(x), foldl Int.max 0 (map maxargsexp x))
+  
+  and maxargsexp(exp) = case exp of
+    IdExp _ => 0
+  | NumExp _ => 0
+  | OpExp (a, _, b) => Int.max(maxargsexp(a), maxargsexp(b))
+  | EseqExp(s, e) => Int.max(maxargs(s), maxargsexp(e))
+
+
+(* demonstrating map usage *)
+fun customPrint x = print (x ^ "\n")
+fun test x = map customPrint x
+
+(* demonstrating fold usage *)
+fun myMax x = foldl Int.max 0 x

@@ -51,3 +51,8 @@ fun test x = map customPrint x
 
 (* demonstrating fold usage *)
 fun myMax x = foldl Int.max 0 x
+
+(* interp : stm -> unit *)
+(* interprets a program in this language *)
+fun interp (s) = case s of
+  _ => 1

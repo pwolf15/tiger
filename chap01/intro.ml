@@ -52,6 +52,8 @@ fun test x = map customPrint x
 (* demonstrating fold usage *)
 fun myMax x = foldl Int.max 0 x
 
+fun update (t, x, y) = (x, y)::t
+
 (* interp : stm -> unit *)
 (* interprets a program in this language *)
 fun interpStm (s, t) = case s of 
@@ -66,3 +68,10 @@ fun interpStm (s, t) = case s of
     | EseqExp _ => "Todo EseqExp\n"
 
 fun interp (s) = interpStm(s, [])
+
+val b = update([], "c", 3)
+val c = update(b, "d", 4)
+val d = update(c, "e", 5)
+val e = update(d, "f", 6)
+
+fun tablePrint t = map (fn (a, b) => print (a ^ " = " ^ Int.toString(b) ^ "\n")) t

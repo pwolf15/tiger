@@ -54,15 +54,15 @@ fun myMax x = foldl Int.max 0 x
 
 (* interp : stm -> unit *)
 (* interprets a program in this language *)
-fun interpStm (s) = case s of 
-      CompoundStm (a, b) => (interpStm(a); interpStm(b))
+fun interpStm (s, t) = case s of 
+      CompoundStm (a, b) => (interpStm(a, t); interpStm(b, t))
     | AssignStm (a, b) => ()
-    | PrintStm (x) => ((map print (map interpExp x)); ())
+    | PrintStm (x) => ((map print (map (fn y => interpExp(y, t)) x)); ())
 
-    and interpExp (e) = case e of
+    and interpExp (e, t) = case e of
       IdExp _ => "Todo IdExp\n"
     | NumExp _ => "Todo NumExp\n"
     | OpExp _ => "Todo OpExp\n"
     | EseqExp _ => "Todo EseqExp\n"
 
-fun interp (s) = interpStm(s)
+fun interp (s) = interpStm(s, ())

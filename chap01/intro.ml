@@ -65,4 +65,4 @@ fun interpStm (s, t) = case s of
     | OpExp _ => "Todo OpExp\n"
     | EseqExp _ => "Todo EseqExp\n"
 
-fun interp (s) = interpStm(s, ())
+fun interp (s) = interpStm(s, [])

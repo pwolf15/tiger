@@ -24,6 +24,8 @@ val prog =
             OpExp(NumExp 10, Times, IdExp"a"))),
     PrintStm[IdExp "b"]))
 
+val prog2 = AssignStm("a", NumExp 15)
+
 (* returns max number of arguments in any print statement *)
 (* use length to get size of PrintStm list *)
 (* length([1, 2, 3]) *)
@@ -57,13 +59,17 @@ fun update (t, x, y) = (x, y)::t
 (* interp : stm -> unit *)
 (* interprets a program in this language *)
 fun interpStm (s, t) = case s of 
-      CompoundStm (a, b) => (interpStm(a, t); interpStm(b, t); ("a", 1)::t)
-    | AssignStm (a, b) => (a, (#1 (interpExp(b, t))))::t
-    | PrintStm (x) => ((map print (map (fn y => "test") x)); ("a", 1)::t)
+      CompoundStm (a, b) => interpStm(b, interpStm(a, t))
+    | AssignStm (a, b) => let 
+                            val result = interpExp(b, t)
+                          in 
+                            update(#2 result, a, #1 result)
+                          end
+    | PrintStm (x) => ((map print (map (fn y => "test") x)); ("c", 1)::t)
 
     and interpExp (e, t) = case e of
       IdExp _ => (1, t)
-    | NumExp _ => (2, t)
+    | NumExp n => (n, t)
     | OpExp _ => (3, t)
     | EseqExp _ => (4, t)
 

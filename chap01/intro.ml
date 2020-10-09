@@ -70,7 +70,7 @@ fun interpStm (s, t) = case s of
     and interpExp (e, t) = case e of
       IdExp _ => (1, t)
     | NumExp n => (n, t)
-    | OpExp _ => (3, t)
+    | OpExp (opd1, opr, opd2) => (3, t)
     | EseqExp _ => (4, t)
 
 fun interp (s) = interpStm(s, [])

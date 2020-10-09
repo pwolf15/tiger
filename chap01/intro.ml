@@ -57,15 +57,15 @@ fun update (t, x, y) = (x, y)::t
 (* interp : stm -> unit *)
 (* interprets a program in this language *)
 fun interpStm (s, t) = case s of 
-      CompoundStm (a, b) => (interpStm(a, t); interpStm(b, t))
-    | AssignStm (a, b) => ()
-    | PrintStm (x) => ((map print (map (fn y => interpExp(y, t)) x)); ())
+      CompoundStm (a, b) => (interpStm(a, t); interpStm(b, t); ("a", 1)::t)
+    | AssignStm (a, b) => (a, (#1 (interpExp(b, t))))::t
+    | PrintStm (x) => ((map print (map (fn y => "test") x)); ("a", 1)::t)
 
     and interpExp (e, t) = case e of
-      IdExp _ => "Todo IdExp\n"
-    | NumExp _ => "Todo NumExp\n"
-    | OpExp _ => "Todo OpExp\n"
-    | EseqExp _ => "Todo EseqExp\n"
+      IdExp _ => (1, t)
+    | NumExp _ => (2, t)
+    | OpExp _ => (3, t)
+    | EseqExp _ => (4, t)
 
 fun interp (s) = interpStm(s, [])
 

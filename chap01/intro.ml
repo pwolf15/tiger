@@ -25,6 +25,8 @@ val prog =
     PrintStm[IdExp "b"]))
 
 val prog2 = AssignStm("a", NumExp 15)
+val prog3 = CompoundStm(AssignStm("a", NumExp 15), PrintStm[IdExp "a"])
+
 
 (* returns max number of arguments in any print statement *)
 (* use length to get size of PrintStm list *)
@@ -55,6 +57,11 @@ fun test x = map customPrint x
 fun myMax x = foldl Int.max 0 x
 
 fun update (t, x, y) = (x, y)::t
+fun lookup ((a, b)::t, x) = 
+  if a = x
+    then b
+  else
+    lookup(t, x)
 
 (* interp : stm -> unit *)
 (* interprets a program in this language *)
@@ -68,7 +75,7 @@ fun interpStm (s, t) = case s of
     | PrintStm (x) => ((map print (map (fn y => "test") x)); ("c", 1)::t)
 
     and interpExp (e, t) = case e of
-      IdExp _ => (1, t)
+      IdExp s => (lookup(t, s), t)
     | NumExp n => (n, t)
     | OpExp (opd1, opr, opd2) => (3, t)
     | EseqExp _ => (4, t)

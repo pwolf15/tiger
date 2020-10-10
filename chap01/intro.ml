@@ -26,7 +26,7 @@ val prog =
 
 val prog2 = AssignStm("a", NumExp 15)
 val prog3 = CompoundStm(AssignStm("a", NumExp 15), PrintStm[IdExp "a"])
-
+val prog4 = AssignStm("a", OpExp(NumExp 10, Plus, NumExp 3))
 
 (* returns max number of arguments in any print statement *)
 (* use length to get size of PrintStm list *)
@@ -81,8 +81,10 @@ fun interpStm (s, t) = case s of
                                     val val1 = interpExp(opd1, t); val val2 = interpExp(opd2, #2 val1)
                                   in
                                       case opr of
-                                      Minus => (4, t)
-                                    | _ => (3, t)
+                                        Plus => (((#1 val1) + (#1 val2)), (#2 val2))
+                                      | Minus => (((#1 val1) - (#1 val2)), (#2 val2))
+                                      | Times => (((#1 val1) * (#1 val2)), (#2 val2))
+                                      | Div => (((#1 val1) div (#1 val2)), (#2 val2))
                                   end
     | EseqExp _ => (4, t)
 

@@ -73,7 +73,15 @@ fun interpStm (s, t) = case s of
                           in 
                             update(#2 result, a, #1 result)
                           end
-    | PrintStm (x) => ((map print (map (fn y => "test") x)); ("c", 1)::t)
+    | PrintStm (x) => (
+                        (map 
+                          customPrint 
+                          (map (fn y => Int.toString(
+                            (#1 (interpExp(y, t)))
+                          )) x)
+                        ); 
+                        t
+                      )
 
     and interpExp (e, t) = case e of
       IdExp s => (lookup(t, s), t)

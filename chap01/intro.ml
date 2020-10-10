@@ -26,7 +26,8 @@ val prog =
 
 val prog2 = AssignStm("a", NumExp 15)
 val prog3 = CompoundStm(AssignStm("a", NumExp 15), PrintStm[IdExp "a"])
-val prog4 = AssignStm("a", OpExp(NumExp 10, Div, NumExp 3))
+val prog4 = AssignStm("a", OpExp(NumExp 33, Div, NumExp 3))
+val prog5 = CompoundStm(AssignStm("a", NumExp 15), AssignStm("b", EseqExp(PrintStm[IdExp"a"], OpExp(NumExp 10, Times, IdExp"a"))))
 
 (* returns max number of arguments in any print statement *)
 (* use length to get size of PrintStm list *)

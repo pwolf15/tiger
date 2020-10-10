@@ -77,7 +77,13 @@ fun interpStm (s, t) = case s of
     and interpExp (e, t) = case e of
       IdExp s => (lookup(t, s), t)
     | NumExp n => (n, t)
-    | OpExp (opd1, opr, opd2) => (3, t)
+    | OpExp (opd1, opr, opd2) =>  let
+                                    val val1 = interpExp(opd1, t); val val2 = interpExp(opd2, #2 val1)
+                                  in
+                                      case opr of
+                                      Minus => (4, t)
+                                    | _ => (3, t)
+                                  end
     | EseqExp _ => (4, t)
 
 fun interp (s) = interpStm(s, [])

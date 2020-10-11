@@ -3,6 +3,8 @@ datatype tree = LEAF | TREE of tree * key * tree
 
 val empty = LEAF
 
+(* insert: 'a tree * key * 'a tree *)
+
 fun insert(key, LEAF) = TREE(LEAF, key, LEAF)
   | insert(key, TREE(l, k, r)) =
       if key < k
@@ -27,8 +29,29 @@ fun lookup(key, LEAF) = LEAF
       then lookup(key, r)
     else TREE(l, k, r)
 
+fun print_tree(LEAF) = ()
+  | print_tree(TREE(l, k, r)) = 
+      (print (k ^ "\n"); print_tree(l); print_tree(r))
+
+
+(* for each level, convert children nodes into list of nodes *)
+fun print_tree_levelorder(LEAF) = ()
+  | print_tree_levelorder(TREE(l, k, r)) =
+    let val arr = [] in
+      print "Hello!\n"
+    end
+  
+  and print_tree_list([]) = ()
+    | print_tree_list(x) = 
+      ()
+
 val l = ["t", "s", "i", "p", "f", "b", "s", "t"];
 
-fun makeBST([], _) = LEAF
-    | makeBST(x::xs, t) =
-      insert(x, makeBST(xs, t))
+(*print_tree_levelorder(make_bst(l2, LEAF)) *)
+val l2 = ["b", "c", "a"]
+
+
+
+fun make_bst([], _) = LEAF
+    | make_bst(x::xs, t) =
+      insert(x, make_bst(xs, t))

@@ -56,3 +56,14 @@ Syntax analysis: parsing the phrase structure of the program.
 Semantic analysis: calculating the program's meaning.
 
 Next Step: 10/4: write maxargs and inter (maxargs prints max number of args in subexpression, interpret actually interprets program)
+
+Exercise
+
+1.1
+c)
+
+                t
+            s
+        i       t
+    f       p
+b               s

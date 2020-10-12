@@ -1,3 +1,7 @@
+## TODO
+
+* Finished in-order print for exercises
+
 Compiler etymology (Bauer and Eickel): a program "compiled" subroutines [a link-loader]. In 1954, the combination "algebraic compiler" came into use (or misuse).
 
 Goal: express the techniques, data structures, algorithms for translating programming languages into executable code.s

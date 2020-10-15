@@ -35,22 +35,22 @@ fun print_tree(LEAF) = ()
 
 
 (* for each level, convert children nodes into list of nodes *)
-fun print_tree_levelorder(LEAF) = ()
-  | print_tree_levelorder(TREE(l, k, r)) =
+fun print_lo(LEAF) = ()
+  | print_lo(TREE(l, k, r)) =
     let val arr = [] in
-      print "Hello!\n"
+      print(k ^ "\n");
+      print_tree_list([l, r])
     end
   
   and print_tree_list([]) = ()
-    | print_tree_list(x) = 
-      ()
+    | print_tree_list(x::xs) = case x of
+        LEAF => print("test1\n")
+      | _ => print("test2\n")
 
 val l = ["t", "s", "i", "p", "f", "b", "s", "t"];
 
 (*print_tree_levelorder(make_bst(l2, LEAF)) *)
 val l2 = ["b", "c", "a"]
-
-
 
 fun make_bst([], _) = LEAF
     | make_bst(x::xs, t) =

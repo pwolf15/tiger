@@ -46,7 +46,8 @@ fun print_lo(LEAF) = ()
     | print_tree_list(x) = 
       (print_tree_list((foldl gen_next_level [] x)); ())
 
-  and gen_next_level(a, b) = [];
+  and gen_next_level(LEAF, b) = b
+    | gen_next_level(TREE(l, k, r), b) = (print(k ^ "\n"); b)
     
 
 val l = ["t", "s", "i", "p", "f", "b", "s", "t"];

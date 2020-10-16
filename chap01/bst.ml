@@ -36,24 +36,28 @@ fun print_tree(LEAF) = ()
 
 (* for each level, convert children nodes into list of nodes *)
 fun print_lo(LEAF) = ()
-  | print_lo(TREE(l, k, r)) =
+  | print_lo(TREE(x)) =
     let val arr = [] in
-      print(k ^ "\n");
-      print_tree_list([l, r])
+      print_tree_list(0, [TREE(x)])
     end
   
-  and print_tree_list([]) = ()
-    | print_tree_list(x) = 
-      (print_tree_list((foldl gen_next_level [] x)); ())
+  and print_tree_list(seed, []) = (print("\n"); ())
+    | print_tree_list(seed, x) = 
+      (print("\n"); print("level " ^ Int.toString(seed) ^ ": "); print_tree_list(seed + 1, (foldl gen_next_level [] x)); ())
 
   and gen_next_level(LEAF, b) = b
-    | gen_next_level(TREE(l, k, r), b) = (print(k ^ "\n"); b)
+    | gen_next_level(x, b) = case x of
+          TREE(LEAF, k, LEAF) => (print(k); b)
+        | TREE(l, k, LEAF) => (print(k); l::b)
+        | TREE(LEAF, k, r) => (print(k); r::b)
+        | TREE(l, k, r) => (print(k); l::r::b)
+        | _ => b
     
 
 val l = ["t", "s", "i", "p", "f", "b", "s", "t"];
 
 (*print_tree_levelorder(make_bst(l2, LEAF)) *)
-val l2 = ["b", "c", "a"]
+val l2 = ["a", "b", "c", "d", "e", "f"]
 
 fun make_bst([], _) = LEAF
     | make_bst(x::xs, t) =

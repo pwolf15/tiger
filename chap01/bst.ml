@@ -43,9 +43,11 @@ fun print_lo(LEAF) = ()
     end
   
   and print_tree_list([]) = ()
-    | print_tree_list(x::xs) = case x of
-        LEAF => print("test1\n")
-      | _ => print("test2\n")
+    | print_tree_list(x) = 
+      (print_tree_list((foldl gen_next_level [] x)); ())
+
+  and gen_next_level(a, b) = [];
+    
 
 val l = ["t", "s", "i", "p", "f", "b", "s", "t"];
 

@@ -59,6 +59,7 @@ val l = ["t", "s", "i", "p", "f", "b", "i", "s", "t"];
 (*print_tree_levelorder(make_bst(l2, LEAF)) *)
 val l2 = ["2", "1", "3", "4", "0"]
 val l3 = ["5", "3", "7", "2", "4", "6", "8"]
+val l4 = ["a", "b", "c", "d", "e", "g", "h", "i"]
 
 fun make_bst([], t) = t
     | make_bst(x::xs, t) =

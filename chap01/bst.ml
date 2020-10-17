@@ -47,18 +47,18 @@ fun print_lo(LEAF) = ()
 
   and gen_next_level(LEAF, b) = b
     | gen_next_level(x, b) = case x of
-          TREE(LEAF, k, LEAF) => (print(k); b)
-        | TREE(l, k, LEAF) => (print(k); l::b)
-        | TREE(LEAF, k, r) => (print(k); r::b)
-        | TREE(l, k, r) => (print(k); l::r::b)
+          TREE(LEAF, k, LEAF) => (print(k ^ " "); b)
+        | TREE(l, k, LEAF) => (print(k ^ " "); l::b)
+        | TREE(LEAF, k, r) => (print(k ^ " "); r::b)
+        | TREE(l, k, r) => (print(k ^ " "); l::r::b)
         | _ => b
     
 
 val l = ["t", "s", "i", "p", "f", "b", "s", "t"];
 
 (*print_tree_levelorder(make_bst(l2, LEAF)) *)
-val l2 = ["a", "b", "c", "d", "e", "f"]
+val l2 = ["b", "a", "c"]
 
-fun make_bst([], _) = LEAF
+fun make_bst([], t) = t
     | make_bst(x::xs, t) =
-      insert(x, make_bst(xs, t))
+      (print(x); make_bst(xs, insert(x, t)))

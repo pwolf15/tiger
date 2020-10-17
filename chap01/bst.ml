@@ -9,9 +9,9 @@ fun insert(key, LEAF) = TREE(LEAF, key, LEAF)
   | insert(key, TREE(l, k, r)) =
       if key < k
         then TREE(insert(key,l),k,r)
-      else if key > k
+      else if key >= k
         then TREE(l, k, insert(key, r))
-      else TREE(l, k, r)
+      else TREE(l, k, insert(key, r))
 
 fun member(key, LEAF) = false
   | member(key, TREE(l, k, r)) =
@@ -54,7 +54,7 @@ fun print_lo(LEAF) = ()
         | _ => b
     
 
-val l = ["t", "s", "i", "p", "f", "b", "s", "t"];
+val l = ["t", "s", "i", "p", "f", "b", "i", "s", "t"];
 
 (*print_tree_levelorder(make_bst(l2, LEAF)) *)
 val l2 = ["2", "1", "3", "4", "0"]

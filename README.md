@@ -81,3 +81,21 @@ See pg. 217
 2-3-4 trees
 red-black trees
 B-tree vs. Avl tree vs. 2-3-4 tree
+
+Front-end compiler: pull apart a program and understand its structure and meaning => analysis
+
+Analysis
+* lexical: breaking the input into individual words or "tokens"
+* syntax: parsing the phrase structure of of the program
+* semantic: calculating the program's meaning
+
+lexical analyzer
+* stream of characters => names, keywords, puncutaiton
+
+Specify lexical tokens using formal language of regular expressions
+Implement lexers using deterministic finite automata
+
+Language = set of strings
+string = finite sequence of symbols
+symbols = emerge from fintie alphabet
+Kleene closuerS

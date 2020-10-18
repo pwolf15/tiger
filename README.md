@@ -78,3 +78,6 @@ d) Sedgewick's Algorithms in C => Balanced Search Trees
 Balanced trees are an attempt to solve the problem introduced by worst-case quick-sort. If the case is a reversed list, then quicksort can perform very poorly (binary search case). To accomodate balanced search trees, 3-node and 4-node trees introduced which have 2- and 3- key node respectively. Traditional binary search tree is 2-node (2 links, 1 key)
 
 See pg. 217
+2-3-4 trees
+red-black trees
+B-tree vs. Avl tree vs. 2-3-4 tree

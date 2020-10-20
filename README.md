@@ -98,4 +98,13 @@ Implement lexers using deterministic finite automata
 Language = set of strings
 string = finite sequence of symbols
 symbols = emerge from fintie alphabet
-Kleene closuerS
+Kleene closure
+
+Longest match: longest initial substring of the input that can match any regular expression is taken as the next token.
+Rule priority: for a particular longest initial substring, the first regular expression that can match determines its token type. This means that the order of writing down the regex rules has significance.
+
+Regular expressions => specify lexical tokens
+Finite automata: formalism 
+Deterministic finite automaton: no two edges leaving from the same state are labeled with the same symbol.
+
+Nondeterministic finite automation: choise of edges -- labeled with the symbol -- to follow out of a state. O ir may have special edges labeled with e (epsioln).

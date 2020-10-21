@@ -108,3 +108,7 @@ Finite automata: formalism
 Deterministic finite automaton: no two edges leaving from the same state are labeled with the same symbol.
 
 Nondeterministic finite automation: choise of edges -- labeled with the symbol -- to follow out of a state. O ir may have special edges labeled with e (epsioln).
+
+Regex => NFA => DFA
+- lexical analyzer generator translates regular expressions into DFA
+- ML-Lex

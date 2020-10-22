@@ -112,3 +112,8 @@ Nondeterministic finite automation: choise of edges -- labeled with the symbol -
 Regex => NFA => DFA
 - lexical analyzer generator translates regular expressions into DFA
 - ML-Lex
+
+lexical specification and an action => ML program
+Regular expressions are static and declarative, finite automatons are dynamic and imperative
+Lex: first lexical-analyzer generator based on regular expressions
+Flex: fast lexical analyzer generator

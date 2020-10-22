@@ -120,7 +120,7 @@ Flex: fast lexical analyzer generator
 
 Exercises
 ab*c*a)1.
-a. (a*)|(c*)|(a*c*(a*b*c*))
+a. (a*)|(c*)|(a+c*(a*b*c*)*)
 b. (ab*c*a)
 c. (1)(100)
 d. 10100*

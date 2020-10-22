@@ -117,3 +117,13 @@ lexical specification and an action => ML program
 Regular expressions are static and declarative, finite automatons are dynamic and imperative
 Lex: first lexical-analyzer generator based on regular expressions
 Flex: fast lexical analyzer generator
+
+Exercises
+ab*c*a)1.
+a. (a*)|(c*)|(a*c*(a*b*c*))
+b. (ab*c*a)
+c. (1)(100)
+d. 10100*
+e. baa
+f. 
+g. 

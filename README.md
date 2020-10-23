@@ -121,7 +121,11 @@ Flex: fast lexical analyzer generator
 Exercises
 ab*c*a)1.
 a. (a*)|(c*)|(a+c*(a*b*c*)*)
-b. (ab*c*a)
+b. Even number of a's
+Examples: abca b c bc aabc aa accca
+(b|c)*(aa)*(b|c)*
+
+(ab*c*a) 
 c. (1)(100)
 d. 10100*
 e. baa

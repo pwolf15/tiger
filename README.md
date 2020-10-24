@@ -126,7 +126,7 @@ Examples: abca b c bc aabc aa accca
 (b|c)*(aa)*(b|c)*
 
 (ab*c*a) 
-c. (1)(100)
+c. (10)*00
 d. 10100*
 e. baa
 f. 

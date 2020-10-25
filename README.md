@@ -119,7 +119,7 @@ Lex: first lexical-analyzer generator based on regular expressions
 Flex: fast lexical analyzer generator
 
 Exercises
-ab*c*a)1.
+1.
 a. a precedes first b => a+(a|c)*b(a|b|c)* | (a|c)* | e
 b. Even number of a's => (b|c)*(a(b|c)*a)*(b|c)*
 c. (10)*00

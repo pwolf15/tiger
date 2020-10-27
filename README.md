@@ -122,8 +122,8 @@ Exercises
 1.
 a. a precedes first b => a+(a|c)*b(a|b|c)* | (a|c)* | e
 b. Even number of a's => (b|c)*(a(b|c)*a)*(b|c)*
-c. (10)*00
-d. 10100*
+c. Multiple of 4 => (1(0|1)*00)
+d. 10100* => 11(0|1)+4 | (101(0|1)*) | 1(0|1)*6
 e. baa
 f. 
 g. 

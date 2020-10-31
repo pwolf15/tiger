@@ -118,6 +118,11 @@ Regular expressions are static and declarative, finite automatons are dynamic an
 Lex: first lexical-analyzer generator based on regular expressions
 Flex: fast lexical analyzer generator
 
+Program
+- implement lexical analyzer for Tiger language
+- ML-Lex
+- Finish tiger.lex, add documentation => how to handle coments, how you handle strings, error ahdnling, end-of-file handling, other interseting features of your lexer
+
 Exercises
 1.
 a. a precedes first b => a+(a|c)*b(a|b|c)* | (a|c)* | e
